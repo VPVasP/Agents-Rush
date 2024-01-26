@@ -2193,7 +2193,7 @@ GameObject:
   - component: {fileID: 6507577528025010968}
   - component: {fileID: 3201064716860219109}
   m_Layer: 8
-  m_Name: Wolverine
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
