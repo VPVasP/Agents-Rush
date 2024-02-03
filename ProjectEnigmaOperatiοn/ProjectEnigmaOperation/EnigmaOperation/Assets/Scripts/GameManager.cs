@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     public GameObject bossDialogue; //our dialogue gameobject 
     [SerializeField] private GameObject pressBToSpawnSecondPlayer;
     public GameObject protectiveWallHealth; //the protective wall health game object
+    private bool secondPlayerFollowsFirst;
     private void Awake()
     {
         instance = this;
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
         secondPlayer.gameObject.SetActive(false);
         secondPlayerRage.gameObject.SetActive(false);
         pressBToSpawnSecondPlayer.SetActive(true);
+        secondPlayerFollowsFirst = true;
     }
 
 
@@ -88,6 +90,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
       //if the enemies killed are 21 we trigger the case 21
+      
         if (enemiesKilled == 21)
         {
             triggeredCase21 = true;
@@ -181,8 +184,15 @@ public class GameManager : MonoBehaviour
                 break;
 
 
-        }  //check if 'B' key is pressed and second player is not spawned
-        if (Input.GetKeyDown(KeyCode.B) && !hasSpawnedSecondPlayer)
+        }
+        if (!hasSpawnedSecondPlayer && secondPlayerFollowsFirst)
+        {
+            float followSpeed = 1;
+            Vector3 targetPosition = new Vector3(players[0].position.x, 16f, players[0].position.z);
+            secondPlayer.position = Vector3.Lerp(secondPlayer.position, targetPosition, Time.deltaTime * followSpeed);
+        }
+        //check if 'B' key is pressed and second player is not spawned
+        if (Input.GetKeyDown(KeyCode.B) && !hasSpawnedSecondPlayer &&secondPlayerFollowsFirst)
         {
 
 
@@ -198,6 +208,7 @@ public class GameManager : MonoBehaviour
             secondPlayerRage.gameObject.SetActive(true);
 
             pressBToSpawnSecondPlayer.SetActive(false);
+            secondPlayerFollowsFirst = false;
         } //follow the second player if he has been spawned
         if (hasSpawnedSecondPlayer == true)
         {
