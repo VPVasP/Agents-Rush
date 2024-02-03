@@ -1446,11 +1446,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6244156888994689454}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9130249, y: 256}
+  m_AnchoredPosition: {x: -0.9130249, y: 545}
   m_SizeDelta: {x: 296.991, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6244156888851125070
@@ -1521,15 +1521,15 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6244156888851125069}
   - {fileID: 6244156890809944987}
   - {fileID: 6244156890504286334}
+  - {fileID: 6244156888851125069}
   m_Father: {fileID: 6244156889143528690}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -131}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6244156888994689455
@@ -1742,7 +1742,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.913025, y: 54.823914}
+  m_AnchoredPosition: {x: 4.913025, y: 70}
   m_SizeDelta: {x: -1213.5055, y: -381.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6244156889143528691
@@ -1757,7 +1757,7 @@ GameObject:
   - component: {fileID: 6244156889143528688}
   - component: {fileID: 6244156889143528689}
   m_Layer: 5
-  m_Name: ThePausePanel
+  m_Name: MainMenuPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2410,11 +2410,11 @@ RectTransform:
   m_Children:
   - {fileID: 6244156889541141565}
   m_Father: {fileID: 6244156888994689454}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.913025, y: -281}
+  m_AnchoredPosition: {x: -4.913025, y: -393}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6244156890504286335
@@ -2599,18 +2599,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move:A,W,S,D Keys
+  m_text: 'Player 1:
+
+    Move:A,W,S,D Keys
 
     Attack:Left Click
 
-    Block:Hold Down Right Mouse
-    Click
-
     Jump:Space
+
+    Block:Hold
+    Down Right Mouse Click
 
     Throw Bomb:T
 
-    Pause:Press Escape
+    RAGE MODE:Press Z
+
+    Add two
+    players:Press B.
+
+    PLAYER 2:
+
+    Move:Arrow keys
+
+    Attack: Press 0
+
+    Jump:
+    Press P
+
+    Rage:Press L
+
+    Block:Press K
 
 '
   m_isRightToLeft: 0
@@ -2639,8 +2657,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2694,11 +2712,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6244156888994689454}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.9130249, y: 17}
+  m_AnchoredPosition: {x: -0.9130249, y: 1}
   m_SizeDelta: {x: 296.991, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6244156890809944988

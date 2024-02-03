@@ -42,6 +42,7 @@ public class PauseManager : MonoBehaviour
         Time.timeScale = 0;
         pauseMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     //we enable the howtoplay menu and disable the pause menu ui
     public void ControlsMenu()
@@ -69,6 +70,7 @@ public class PauseManager : MonoBehaviour
         pauseMusic.Stop();
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         isPaused = false;
     }

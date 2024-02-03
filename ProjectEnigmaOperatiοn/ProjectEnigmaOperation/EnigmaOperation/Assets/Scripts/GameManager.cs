@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     public Transform[] reSpawnPoints;// the spawn points array for the player when he dies to respawn to
     private Transform mainCameraTransform; //our main camera refrence
     public GameObject bossDialogue; //our dialogue gameobject 
+    [SerializeField] private GameObject pressBToSpawnSecondPlayer;
     public GameObject protectiveWallHealth; //the protective wall health game object
     private void Awake()
     {
@@ -77,7 +78,9 @@ public class GameManager : MonoBehaviour
         isInPhase3 = false;
         mainCameraTransform = Camera.main.transform;
         bossDialogue.SetActive(false);
+        secondPlayer.gameObject.SetActive(false);
         secondPlayerRage.gameObject.SetActive(false);
+        pressBToSpawnSecondPlayer.SetActive(true);
     }
 
 
@@ -193,6 +196,8 @@ public class GameManager : MonoBehaviour
             spawnPlayer2Text.SetActive(true);
             hasSpawnedSecondPlayer = true;
             secondPlayerRage.gameObject.SetActive(true);
+
+            pressBToSpawnSecondPlayer.SetActive(false);
         } //follow the second player if he has been spawned
         if (hasSpawnedSecondPlayer == true)
         {
