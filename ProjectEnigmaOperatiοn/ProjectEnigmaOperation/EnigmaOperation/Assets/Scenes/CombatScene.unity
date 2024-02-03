@@ -7677,7 +7677,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   isgrounded: 0
-  camTransform: {fileID: 1831004208}
+  camTransform: {fileID: 451329984}
   playerModel: {fileID: 600193658}
   aud: {fileID: 737981620}
   lyr:
