@@ -1,6 +1,6 @@
-Enigma Operation 
+Agents Rush 
 
-Enigma Operation is a top down arcade style beat them up game where the player needs to defeat the enemies to proceed the various stages to face the boss at the end.
+Agents Rush  is a top down game where the player needs to defeat the enemies to proceed the various stages to face the boss at the end.
 
 ## How to Play:
 
