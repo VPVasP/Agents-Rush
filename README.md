@@ -1,20 +1,11 @@
 Agents Rush 
 
-Agents Rush  is a top down game where the player needs to defeat the enemies to proceed the various stages to face the boss at the end.
+Agents Rush is a fun top down game where the player needs to defeat the enemies to proceed the various stages to face the boss at the end. Created in Unity Engine. The game features fun gameplay and combat, a rage mode that gives the player super speed and boosts the player's attack for a short amount of time and the ability to add a second player and play Split-Screen with one Keyboard.
+-  You can try the game on Itch.io: (https://itchiovp.itch.io/agents-rush)
 
-## How to Play:
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjUwOTc4NC8xNDkxNjEwNy5wbmc=/original/EA5iU5.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjUwOTc4NC8xNDkxNjEwNi5wbmc=/original/HUGSTX.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjUwOTc4NC8xNDkxNjEwOC5wbmc=/original/3a5qRN.png)
+![Screenshots](https://img.itch.zone/aW1hZ2UvMjUwOTc4NC8xNDkxNjExMC5wbmc=/original/xBpQzn.png)
 
-1. **Movement:** Use W, S, D, A keys to navigate X through the game world.
-2. **Combat:**
-   - Attack: Left Click
-   - Block: Right Click
-3. **Jump:** Press Space to jump.
-4. **Multiplayer:** Press B to add a second player to play with two players in one computer.
-5. **Rage Mode:** Press Z to activate Rage Mode, boosting the player's speed and damage.
-6. **Explosives:** Throw bombs by pressing T.
-7. **Progression:** Defeat enemies to advance through stages.
-8. **Boss Battle:** Face a boss at the end of the game.
 
-**Key Features:**
-- Top-down arcade style gameplay.
-- Many Enemies and a boss.
