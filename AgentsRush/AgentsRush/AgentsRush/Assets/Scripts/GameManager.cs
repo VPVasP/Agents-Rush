@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using System.Security.Cryptography;
 
 public class GameManager : MonoBehaviour
 {
@@ -83,6 +82,7 @@ public class GameManager : MonoBehaviour
         secondPlayerRage.gameObject.SetActive(false);
         pressBToSpawnSecondPlayer.SetActive(true);
         secondPlayerFollowsFirst = true;
+        AudioManager.instance.PlaySoundEffect("Defeat All The Enemies to Proceed");
     }
 
 
