@@ -357,7 +357,6 @@ public class GameManager : MonoBehaviour
     public void PlayStart()
     {
         waves[0].SetActive(true);
-        AudioManager.instance.PlaySoundEffect("Defeat All The Enemies to Proceed");
         Invoke("PlayMusic", 3f); //play music function after 3 seconds
     }
 

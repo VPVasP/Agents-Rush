@@ -65,17 +65,38 @@ public class GamePhaseManager : MonoBehaviour
                 break;
 
             case 10:
-                StartPhase2();
+                EnemyManager.instance.SpawnEnemies(7);
+                hasSpawnedFruit = false;
                 break;
 
             case 12:
+                if (!hasSpawnedFruit)
+                {
+                    EnemyManager.instance.SpawnFruit(1);
+                    hasSpawnedFruit = true;
+                    Debug.Log("Spawned Fruit");
+                }
+                break;
+            case 17:
 
+                EnemyManager.instance.SpawnEnemies(10);
+                hasSpawnedFruit = false;
                 break;
 
-            case 21:
-                StartPhase3();
+            case 20:
+                if (!hasSpawnedFruit)
+                {
+                    EnemyManager.instance.SpawnFruit(1);
+                    hasSpawnedFruit = true;
+                    Debug.Log("Spawned Fruit");
+                }
                 break;
-
+            case 27:
+                EnemyManager.instance.SpawnEnemies(3);
+                break;
+            case 30:
+                UiManager.instance.ShowWinText();
+                break;
             default:
                 break;
         }

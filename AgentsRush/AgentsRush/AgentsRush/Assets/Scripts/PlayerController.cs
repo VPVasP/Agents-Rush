@@ -439,12 +439,11 @@ public class PlayerController : MonoBehaviour
             rageClawEffects[2].SetActive(true);
             normalClawEffects[0].SetActive(false);
             normalClawEffects[1].SetActive(false);
-
-            isRaging = true;
             //we pause the main music and play the rage sound 
-            aud.clip = rageSound;
-            aud.Play();
-            GameManager.instance.aud.Pause();
+            AudioManager.instance.PlaySoundEffect(AudioManager.instance.rageSound);
+            AudioManager.instance.RageModeMusic();
+            UiManager.instance.Notification(UiManager.instance.playerRageText, "RAGE MODE IS ON! ", Color.yellow, string.Empty);
+            isRaging = true;
         }
 
         if (isRaging == true)
@@ -476,8 +475,8 @@ public class PlayerController : MonoBehaviour
             rageMeter.value = rage;
             directionalLight.color = normalColor;
             isRaging = false;
-            GameManager.instance.aud.UnPause();
         }
+       
     }
     //method to add rage
     public void AddRage()
