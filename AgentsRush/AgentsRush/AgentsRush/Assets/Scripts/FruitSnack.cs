@@ -33,6 +33,8 @@ public class FruitSnack : MonoBehaviour
 
             controller.health += healthToAdd; //we add the health to the player
             controller.healthSlider.value = controller.health; // we update the ui health slider
+
+            UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player Health Gained + " + randomHealth, Color.red, string.Empty);
         }
     }
 

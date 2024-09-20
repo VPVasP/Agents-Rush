@@ -161,7 +161,6 @@ public class PlayerController : MonoBehaviour
             isDeadAnimation = true;
             anim.SetTrigger("Dead");
             this.enabled = false;
-            UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player is Dead" + rage, Color.red, string.Empty);
         }
         //activate rage effect function
             ActivateRageEffect();
@@ -377,7 +376,15 @@ public class PlayerController : MonoBehaviour
             {
                 UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player Health Lost " + health, Color.red, string.Empty);
             }
-         
+            if(health <= 20)
+            {
+                UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player Health is Low ", Color.red, string.Empty);
+            }
+            if (health < 0)
+            {
+                UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player is Dead", Color.red, string.Empty);
+            }
+
             //if we are blocking we play the block sound
             if (isBlocking == true)
             { 
