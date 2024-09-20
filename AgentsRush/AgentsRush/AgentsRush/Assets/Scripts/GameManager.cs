@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject pressBToSpawnSecondPlayer;
     public GameObject protectiveWallHealth; //the protective wall health game object
     private bool secondPlayerFollowsFirst;
+    public TextMeshProUGUI enemiesRemainingText;
     private void Awake()
     {
         instance = this;
@@ -61,14 +62,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
         Invoke("PlayStart", 1f); //play the playstart method after 1 second
         cameras[1].gameObject.SetActive(false);
-        enemiesKilledText.text = "Enemies Killed: " + enemiesKilled;
         hasSpawnedSecondPlayer = false;
         isInRound1 = true;
         enemiesToSpawn = 3;
         EnemySpawner(enemiesToSpawn);
+        enemiesRemainingText.text = "Enemies remaining: " +enemiesToSpawn.ToString();
         secondPlayerSlider.gameObject.SetActive(false);
         doors[0].SetActive(true);
         phases[0].SetActive(false);
@@ -82,7 +82,6 @@ public class GameManager : MonoBehaviour
         secondPlayerRage.gameObject.SetActive(false);
         pressBToSpawnSecondPlayer.SetActive(true);
         secondPlayerFollowsFirst = true;
-        AudioManager.instance.PlaySoundEffect("Defeat All The Enemies to Proceed");
     }
 
 
@@ -110,6 +109,7 @@ public class GameManager : MonoBehaviour
                 {
                     enemiesToSpawn = 4;
                     EnemySpawner(enemiesToSpawn);
+                    enemiesRemainingText.text = "Enemies remaining: " + enemiesToSpawn.ToString();
                     hasSpawnedEnemies = true;
                 }
 
@@ -126,12 +126,13 @@ public class GameManager : MonoBehaviour
             case 10: //check if 10 enemies are killed
                 if (!hasSpawnedEnemiesHall)
                 {
-                    waves[0].GetComponent<TextMeshProUGUI>().text = "Progress Through the Hall";
                     waves[0].SetActive(true);
+                    waves[0].GetComponent<TextMeshProUGUI>().text = "Progress Through the Hall";
                     Invoke("DeactivateText", 3f);
                     doors[0].SetActive(false);
                     phases[0].SetActive(true);
                     gizmosPosition = new Vector3(-74.2f, 51.4f, 4f);
+                    enemiesRemainingText.text = "Enemies remaining: " + enemiesToSpawn.ToString();
                     Instantiate(enemies[0], spawnPoint[0].position, Quaternion.identity);
                     Instantiate(enemies[0], spawnPoint[1].position, Quaternion.identity);
                     GameObject newFruit = Instantiate(fruit, spawnPoint[0].position + new Vector3(5, 1, -5f), Quaternion.identity);
@@ -150,8 +151,8 @@ public class GameManager : MonoBehaviour
                 isInPhase2 = true;
                 if (!hasSpawnedEnemiesPhase2)
                 {
-
                     EnemySpawnerPhase2(enemiesToSpawn);
+                    enemiesRemainingText.text = "Enemies remaining: " + enemiesToSpawn.ToString();
                     hasSpawnedEnemiesPhase2 = true;
                 }
                 break;
@@ -164,6 +165,7 @@ public class GameManager : MonoBehaviour
                     waves[0].GetComponent<TextMeshProUGUI>().text = "Procceed,Boss fight after this Hall";
                     waves[0].SetActive(true);
                     Invoke("DeactivateTextSecond", 5f);
+                    enemiesRemainingText.text = "Enemies remaining: " + enemiesToSpawn.ToString();
                     Instantiate(enemies[0], spawnPoint[2].position, Quaternion.identity);
                     Instantiate(enemies[1], spawnPoint[3].position, Quaternion.identity);
                     hasSpawnedEnemiesHall2 = true;
@@ -355,7 +357,7 @@ public class GameManager : MonoBehaviour
     public void PlayStart()
     {
         waves[0].SetActive(true);
-
+        AudioManager.instance.PlaySoundEffect("Defeat All The Enemies to Proceed");
         Invoke("PlayMusic", 3f); //play music function after 3 seconds
     }
 

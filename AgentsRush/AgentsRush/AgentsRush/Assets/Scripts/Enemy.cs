@@ -132,9 +132,7 @@ public class Enemy : MonoBehaviour
             isDead = true;
             anim.SetTrigger("Dead"); //we update the animation trigger to the death animation
             print("DEAD");
-            
-            GameManager.instance.enemiesKilled += 1;
-            GameManager.instance.enemiesKilledText.text = "Enemies Killed: " + GameManager.instance.enemiesKilled;
+            EnemyManager.instance.EnemyKilled();
             //we find both players and the player who killed the enemy we add rage 
             Transform targetPlayer = findBothPlayers();
             GameObject player = targetPlayer.gameObject;
@@ -142,7 +140,6 @@ public class Enemy : MonoBehaviour
             //play the death audio and start the dead coroutine
             aud.clip = enemySounds[1];
             aud.Play();
-        
             StartCoroutine(dead());
         }
     }
@@ -166,7 +163,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         transform.GetChild(0).gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
-        //we instatiate the death effect of the enemy
+        //we instatiate the death effect of the enemy;
         GameObject theDeathEffect = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }

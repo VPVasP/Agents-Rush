@@ -377,9 +377,9 @@ public class PlayerController : MonoBehaviour
                 aud.Play();
             }
             //if we are in phase 1 it respawns to the first respawn point and reset our health to max and play dead audio
-            if (health <= 0 && GameManager.instance.isInPhase1 == true)
+            if (health <= 0 && GamePhaseManager.instance.currentPhase == GamePhaseManager.GamePhase.Phase1)
             {
-                this.transform.localPosition = GameManager.instance.reSpawnPoints[0].position;
+                this.transform.localPosition = PlayerManager.instance.reSpawnPoints[0].position;
                 aud.clip = deadAudio;
                 aud.Play();
                 health = 100;
@@ -387,9 +387,9 @@ public class PlayerController : MonoBehaviour
 
             }
             //if we are in phase 2 it respawns to the first respawn point and reset our health to max and play dead audio
-            if (health <= 0 && GameManager.instance.isInPhase2 == true)
+            if (health <= 0 && GamePhaseManager.instance.currentPhase == GamePhaseManager.GamePhase.Phase2)
             {
-                this.transform.localPosition = GameManager.instance.reSpawnPoints[1].position;
+                this.transform.localPosition = PlayerManager.instance.reSpawnPoints[1].position;
                 aud.clip = deadAudio;
                 aud.Play();
                 health = 100;
@@ -400,9 +400,9 @@ public class PlayerController : MonoBehaviour
             }
 
             //if we are in phase 3 it respawns to the first respawn point and reset our health to max and play dead audio
-            if (health <= 0 && GameManager.instance.isInPhase3 == true)
-            {
-                this.transform.localPosition = GameManager.instance.reSpawnPoints[2].position;
+            if (health <= 0 && GamePhaseManager.instance.currentPhase == GamePhaseManager.GamePhase.Phase3)
+                {
+                this.transform.localPosition = PlayerManager.instance.reSpawnPoints[2].position;
                 aud.clip = deadAudio;
                 aud.Play();
                 health = 100;
