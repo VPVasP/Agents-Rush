@@ -161,6 +161,7 @@ public class PlayerController : MonoBehaviour
             isDeadAnimation = true;
             anim.SetTrigger("Dead");
             this.enabled = false;
+            UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player is Dead" + rage, Color.red, string.Empty);
         }
         //activate rage effect function
             ActivateRageEffect();
@@ -313,8 +314,9 @@ public class PlayerController : MonoBehaviour
                                 enemy.GetComponent<Rigidbody>().AddForce(Vector3.up * 8f, ForceMode.Impulse);
                                 enemy.GetComponent<Enemy>().startMove = false;
                                 enemy.GetComponent<Animator>().SetTrigger("DamageBig");
-                             
-                         
+
+                                float enemyHealth =  enemy.GetComponent<Enemy>().health;
+                                UiManager.instance.Notification(UiManager.instance.enemyText, "Enemy Health " +enemyHealth, Color.green,string.Empty);
                                 Debug.Log(enemy.GetComponent<Enemy>().health);
                             }
                         }
@@ -323,8 +325,10 @@ public class PlayerController : MonoBehaviour
                             if (!enemy.GetComponent<Enemy>().isDead)
                             {
                                 //apply damage for small attack
+                                float enemyHealth = enemy.GetComponent<Enemy>().health;
                                 enemy.GetComponent<Enemy>().health -= smallAttackDamage;
                                 enemy.GetComponent<Animator>().SetTrigger("DamageSmall");
+                                UiManager.instance.Notification(UiManager.instance.enemyText, "Enemy Health " + enemyHealth, Color.green, string.Empty);
                                 Debug.Log(enemy.GetComponent<Enemy>().health);
 
                                
@@ -369,12 +373,17 @@ public class PlayerController : MonoBehaviour
             healthSlider.value = health;
             aud.clip = hurtSound;
             aud.Play();
+            if(health > 0)
+            {
+                UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player Health Lost " + health, Color.red, string.Empty);
+            }
+         
             //if we are blocking we play the block sound
             if (isBlocking == true)
-            {
-               
+            { 
                 aud.clip = blockSound;
                 aud.Play();
+                UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player Blocked the Attack !", Color.red, string.Empty);
             }
             //if we are in phase 1 it respawns to the first respawn point and reset our health to max and play dead audio
             if (health <= 0 && GamePhaseManager.instance.currentPhase == GamePhaseManager.GamePhase.Phase1)
@@ -394,9 +403,6 @@ public class PlayerController : MonoBehaviour
                 aud.Play();
                 health = 100;
                 healthSlider.value = health;
-
-               
-
             }
 
             //if we are in phase 3 it respawns to the first respawn point and reset our health to max and play dead audio
@@ -473,8 +479,12 @@ public class PlayerController : MonoBehaviour
         {
             rage += 20;
             rageMeter.value = rage;
+            UiManager.instance.Notification(UiManager.instance.playerRageText, "Player Rage Added + 20 ", Color.yellow, string.Empty);
         }
-        
+        if(rage == 100)
+        {
+            UiManager.instance.Notification(UiManager.instance.playerRageText, "Player Rage Is FULL! ", Color.yellow, string.Empty);
+        }
         
     }
    

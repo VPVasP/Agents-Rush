@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,6 +11,9 @@ public class UiManager : MonoBehaviour
     public GameObject winText;
     public GameObject[] waveTexts;
 
+    public TextMeshProUGUI enemyText, playerHealthText, playerRageText;
+
+
     private void Awake()
     {
         //singleton pattern
@@ -19,6 +23,11 @@ public class UiManager : MonoBehaviour
             Destroy(gameObject);
     }
 
+    //disable all notifications ui at the start
+    private void Start()
+    {
+        DisableNotificationsAtStart();
+    }
     //updates the UI text for enemies remaining
     public void UpdateEnemiesRemaining(int remaining)
     {
@@ -48,5 +57,34 @@ public class UiManager : MonoBehaviour
         {
             text.SetActive(false);
         }
+    }
+    //notification creator
+    public void Notification(TextMeshProUGUI notificationText, string nameOfMessage, Color color, string messageInfo)
+    {
+        notificationText.color = color;
+        notificationText.text = nameOfMessage + messageInfo;
+
+        StartCoroutine(ShowNotification(notificationText, nameOfMessage, color, messageInfo));
+    }
+    //disable all the notifications
+    private void DisableNotificationsAtStart()
+    {
+        enemyText.gameObject.SetActive(false);
+        playerHealthText.gameObject.SetActive(false);
+        playerRageText.gameObject.SetActive(false);
+    }
+    //show notification and disable notification
+    private IEnumerator ShowNotification(TextMeshProUGUI notificationText, string nameOfMessage, Color color, string messageInfo)
+    {
+        //set the color and text and then enable the notificationText
+        notificationText.color = color;
+        notificationText.text = nameOfMessage + messageInfo;
+        notificationText.gameObject.SetActive(true);
+
+        //wait for 2 seconds before disabling the notification again
+        yield return new WaitForSeconds(2f);
+
+        //disable the notificationText
+        notificationText.gameObject.SetActive(false);
     }
 }

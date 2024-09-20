@@ -140,6 +140,7 @@ public class Enemy : MonoBehaviour
             //play the death audio and start the dead coroutine
             aud.clip = enemySounds[1];
             aud.Play();
+            UiManager.instance.Notification(UiManager.instance.enemyText, "Enemy is Dead ", Color.green, string.Empty);
             StartCoroutine(dead());
         }
     }
