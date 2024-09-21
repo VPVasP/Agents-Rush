@@ -12,7 +12,7 @@ public class UiManager : MonoBehaviour
     public GameObject[] waveTexts;
 
     public TextMeshProUGUI enemyText, playerHealthText, playerRageText;
-
+    public TextMeshProUGUI rageModeReadyText;
 
     private void Awake()
     {
@@ -27,6 +27,8 @@ public class UiManager : MonoBehaviour
     private void Start()
     {
         DisableNotificationsAtStart();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
     //updates the UI text for enemies remaining
     public void UpdateEnemiesRemaining(int remaining)
@@ -37,6 +39,10 @@ public class UiManager : MonoBehaviour
     public void ShowWinText()
     {
         winText.SetActive(true);
+    }
+    public void ShowRageText()
+    {
+        rageModeReadyText.gameObject.SetActive(true);
     }
 
     //shows a wave text message for a specified duration
@@ -72,6 +78,7 @@ public class UiManager : MonoBehaviour
         enemyText.gameObject.SetActive(false);
         playerHealthText.gameObject.SetActive(false);
         playerRageText.gameObject.SetActive(false);
+        rageModeReadyText.gameObject.SetActive(false);
     }
     //show notification and disable notification
     private IEnumerator ShowNotification(TextMeshProUGUI notificationText, string nameOfMessage, Color color, string messageInfo)

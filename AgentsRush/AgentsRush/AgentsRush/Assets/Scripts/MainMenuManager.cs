@@ -38,7 +38,7 @@ public class MainMenuManager : MonoBehaviour
     //we load the scene to begin the game
     public void StartGame()
     {
-        SceneManager.LoadScene("CombatScene");
+      //  SceneManager.Load("CombatScene");
     }
     private void Update()
     {

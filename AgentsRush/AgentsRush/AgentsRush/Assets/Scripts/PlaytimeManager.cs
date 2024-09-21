@@ -28,7 +28,7 @@ public class PlaytimeManager : MonoBehaviour
 
             //disable the UI Elements
             gameObject.SetActive(false);
-            GameManager.instance.PlayEnd();
+            GameSceneManager.instance.RestartScene();
         }
     }
     //update countdown timer UI for both slider and the text

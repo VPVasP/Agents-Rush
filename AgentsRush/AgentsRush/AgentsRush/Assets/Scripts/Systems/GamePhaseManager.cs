@@ -95,7 +95,7 @@ public class GamePhaseManager : MonoBehaviour
                 EnemyManager.instance.SpawnEnemies(3);
                 break;
             case 30:
-                UiManager.instance.ShowWinText();
+                GameSceneManager.instance.RestartScene();
                 break;
             default:
                 break;

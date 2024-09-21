@@ -443,6 +443,7 @@ public class PlayerController : MonoBehaviour
             AudioManager.instance.PlaySoundEffect(AudioManager.instance.rageSound);
             AudioManager.instance.RageModeMusic();
             UiManager.instance.Notification(UiManager.instance.playerRageText, "RAGE MODE IS ON! ", Color.yellow, string.Empty);
+            UiManager.instance.rageModeReadyText.gameObject.SetActive(false);
             isRaging = true;
         }
 
@@ -489,6 +490,7 @@ public class PlayerController : MonoBehaviour
         }
         if(rage == 100)
         {
+            UiManager.instance.ShowRageText();
             UiManager.instance.Notification(UiManager.instance.playerRageText, "Player Rage Is FULL! ", Color.yellow, string.Empty);
         }
         
