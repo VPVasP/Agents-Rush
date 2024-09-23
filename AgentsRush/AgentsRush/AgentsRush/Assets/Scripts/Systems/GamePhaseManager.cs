@@ -133,6 +133,5 @@ public class GamePhaseManager : MonoBehaviour
     private void StartPhase3()
     {
         currentPhase = GamePhase.Phase3;
-        doors[3].GetComponent<DoorBeforeBoss>().DisableMeshAndTrigger();
     }
 }

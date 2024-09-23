@@ -43,7 +43,7 @@ public class PickupBomb : MonoBehaviour
         if (collision.gameObject.CompareTag("ProtectiveWall"))
         {
             //we call the lose function of the collision gameobject
-            collision.gameObject.GetComponent<ProtectiveWall>().LoseHealth();
+         //   collision.gameObject.GetComponent<ProtectiveWall>().LoseHealth();
             //we instatiate the deatheffect when the bomb hits the ground
             GameObject theDeathEffect = Instantiate(bombEffect, transform.position, Quaternion.identity);
             //we set the bossmanager bool to false
@@ -58,8 +58,8 @@ public class PickupBomb : MonoBehaviour
             this.GetComponent<BoxCollider>().enabled = false;
             this.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
             //we set the dialogue to true and change the dialogue text to a random value from the strings array
-            GameManager.instance.bossDialogue.SetActive(true);
-            GameManager.instance.bossDialogue.GetComponentInChildren<TextMeshProUGUI>().text = "BOSS: " + bossSentences[Random.Range(0, bossSentences.Length)];
+         //   GameManager.instance.bossDialogue.SetActive(true);
+      //      GameManager.instance.bossDialogue.GetComponentInChildren<TextMeshProUGUI>().text = "BOSS: " + bossSentences[Random.Range(0, bossSentences.Length)];
             // we call the function DisableWilsonFiskDialogue after 3 seconds
             Invoke("DisableWilsonFiskDialogue", 3f);
             boomSound.Play(); //we play the sound effect
@@ -76,7 +76,7 @@ public class PickupBomb : MonoBehaviour
     //we disable the wilson fisk dialouge function
     public void DisableWilsonFiskDialogue()
     {
-        GameManager.instance.bossDialogue.SetActive(false);
+      //  GameManager.instance.bossDialogue.SetActive(false);
     }
     private void Update()
     {

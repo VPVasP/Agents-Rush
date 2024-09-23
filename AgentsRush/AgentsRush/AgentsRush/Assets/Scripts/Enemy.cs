@@ -59,7 +59,6 @@ public class Enemy : MonoBehaviour
             aud.clip = enemySounds[0];
             aud.Play();
             hasPlayedEnemySpottedAudio = true;
-            GameManager.instance.aud.volume = 0.3f;
             hasPlayedMainMusic = true;
         }
 
@@ -72,7 +71,6 @@ public class Enemy : MonoBehaviour
 
                 if (startMove && hasPlayedMainMusic) //if the enemy can move and has played the mainmusic
                 {
-                    GameManager.instance.aud.volume = 1.0f; //we adjust the game manager volume
 
                     if (DoesRange) //check if the enemy does a range attack
                     {
@@ -119,9 +117,9 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if (GameManager.instance.hasSpawnedSecondPlayer && !hasAddedSecondPlayer) //if the second enemy has spawned we add him to the list 
+        if (PlayerManager.instance.hasSpawnedSecondPlayer && !hasAddedSecondPlayer) //if the second enemy has spawned we add him to the list 
         {
-            Transform secondPlayerTransform = GameManager.instance.secondPlayer.transform;
+            Transform secondPlayerTransform = PlayerManager.instance.secondPlayer.transform;
             target.Add(secondPlayerTransform);
             hasAddedSecondPlayer = true;
         }
@@ -181,7 +179,7 @@ public class Enemy : MonoBehaviour
         {
             yield return new WaitForSeconds(3f);
             //play a random attack animation 
-            if (startMove && canAttack && !GameManager.instance.players[0].GetComponent<PlayerController>().isDead && !isDead)
+            if (startMove && canAttack && !PlayerManager.instance.players[0].GetComponent<PlayerController>().isDead && !isDead)
             {
                 anim.Play(attackAnim[Random.Range(0, 2)]);
             }

@@ -18,7 +18,7 @@ public class PlayerManager : MonoBehaviour
     public Slider secondPlayerRageSlider;
     public GameObject pressBToSpawnText;
 
-    private bool hasSpawnedSecondPlayer = false;
+    public bool hasSpawnedSecondPlayer = false;
     private bool secondPlayerFollowsFirst = true;
 
     private void Awake()

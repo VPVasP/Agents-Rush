@@ -60,7 +60,7 @@ public class PauseManager : MonoBehaviour
     //we restart the game and we set the time scale to 1
     public void RestartLevel()
     {
-        GameManager.instance.Restart();
+        GameSceneManager.instance.RestartScene();
         Time.timeScale = 1;   
     }
     //we resume the game and play the correct music and set the timescale to 1 to unfreeze everything
