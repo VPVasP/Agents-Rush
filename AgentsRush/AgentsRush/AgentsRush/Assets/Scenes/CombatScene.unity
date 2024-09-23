@@ -5744,7 +5744,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492167709}
-  - component: {fileID: 492167708}
   - component: {fileID: 492167710}
   - component: {fileID: 492167711}
   - component: {fileID: 492167712}
@@ -5761,77 +5760,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &492167708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 492167707}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c474a2071b26b840a5e0c9fb56fe6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aud: {fileID: 492167710}
-  players:
-  - {fileID: 1878799279}
-  - {fileID: 737981624}
-  InGameMusic: {fileID: 8300000, guid: bb57d8e47ce2e6446b57a9ef7fc18b7e, type: 3}
-  enemiesKilledText: {fileID: 1575219099}
-  enemiesKilled: 0
-  winText: {fileID: 315107270}
-  waves:
-  - {fileID: 1597117184}
-  - {fileID: 750609397}
-  - {fileID: 205779017}
-  fruit: {fileID: 2869589742954785245, guid: c015485ec54d1af4db7ca4be2320322a, type: 3}
-  fruitEffect: {fileID: 620833127796005130, guid: aa6bce03c72e63b479fe9d477ed63a7d,
-    type: 3}
-  fruitPos: {fileID: 151354721}
-  triggeredCase21: 0
-  hasSpawnedSecondPlayer: 0
-  isInPhase1: 0
-  isInPhase2: 0
-  isInPhase3: 0
-  isInRound1: 0
-  isInRound2: 0
-  disableMeshAndTrigger: 0
-  cameras:
-  - {fileID: 1831004207}
-  - {fileID: 451329988}
-  enemies:
-  - {fileID: 8529431810903883886, guid: 1a47c729cca0b134dbba329be34e7f59, type: 3}
-  - {fileID: 8529431810903883886, guid: c73d19afc0fe5484687464b464677c2a, type: 3}
-  gizmosCubeSize: {x: 5, y: 5, z: 5}
-  gizmosPosition: {x: -82, y: 50, z: -70}
-  enemiesToSpawn: 0
-  secondPlayer: {fileID: 737981624}
-  secondPlayerSlider: {fileID: 1600989799}
-  secondPlayerRage: {fileID: 1969863262}
-  secondPlayerHealth: 0
-  spawnPlayer2Text: {fileID: 1083049121}
-  player1Text: {fileID: 6507577526339952366}
-  phases:
-  - {fileID: 746673243}
-  doors:
-  - {fileID: 1197226626}
-  - {fileID: 493388808}
-  - {fileID: 1613583201}
-  - {fileID: 1300772332}
-  spawnPoint:
-  - {fileID: 1582598100}
-  - {fileID: 1274585497}
-  - {fileID: 2110914902}
-  - {fileID: 1912176084}
-  reSpawnPoints:
-  - {fileID: 326895541}
-  - {fileID: 1807550533}
-  - {fileID: 1180498993}
-  bossDialogue: {fileID: 832965667}
-  pressBToSpawnSecondPlayer: {fileID: 2124567007}
-  protectiveWallHealth: {fileID: 1151566913}
-  enemiesRemainingText: {fileID: 120498302}
 --- !u!4 &492167709
 Transform:
   m_ObjectHideFlags: 0
@@ -6101,6 +6029,7 @@ MonoBehaviour:
   secondPlayerHealthSlider: {fileID: 1600989799}
   secondPlayerRageSlider: {fileID: 1969863262}
   pressBToSpawnText: {fileID: 2124567007}
+  hasSpawnedSecondPlayer: 0
 --- !u!114 &492167718
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,17 +20,19 @@ public class PauseManager : MonoBehaviour
         instance = this;
     }
     // Start is called before the first frame update
-  
+
     public void Update()
     {
-        //if we press the escape key and it is not paused we can pause
-        if (Input.GetKey(KeyCode.Escape) && isPaused==false) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Pause();
-        }
-        //if we press the escape key and it is  paused we can resume the game
-        else if (Input.GetKey(KeyCode.Escape) && isPaused==true){
-            Resume();
+            if (!isPaused)
+            {
+                Pause();
+            }
+            else
+            {
+                Resume();
+            }
         }
     }
     //we pause the game and we set the time scale to 0 so it freezes everything and pauses main music and plays pause music
