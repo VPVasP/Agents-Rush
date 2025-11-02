@@ -3,8 +3,6 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using UnityEngine.Experimental.GlobalIllumination;
-using UnityEngine.XR;
 //using Mono.Cecil;
 
 public class PlayerController : MonoBehaviour
@@ -105,12 +103,15 @@ public class PlayerController : MonoBehaviour
         //check if the player is grounded
         isgrounded = isGrounded();
 
-
+        float vertical = 0;
+        float horizontal = 0;
+        if (Input.GetKey(KeyCode.W)) vertical = 1; // Move forward
+        if (Input.GetKey(KeyCode.S)) vertical = -1; // Move backward
+        if (Input.GetKey(KeyCode.A)) horizontal = -1; // Move left
+        if (Input.GetKey(KeyCode.D)) horizontal = 1; // Move right
         //calculate movement vectors based on player input and camera 
         Vector3 forwardVector = (transform.position - new Vector3(camTransform.position.x, transform.position.y, camTransform.position.z)).normalized;
         Vector3 rightVector = Vector3.Cross(forwardVector, Vector3.up);
-        float vertical = Input.GetAxis(verticalInputAxis);
-        float horizontal = Input.GetAxis(horizontalInputAxis);
         Vector3 between = (forwardVector * vertical) + (-horizontal * rightVector);
         between = between.normalized;
         //move the player based on input and animation state
@@ -383,6 +384,7 @@ public class PlayerController : MonoBehaviour
             if (health < 0)
             {
                 UiManager.instance.Notification(UiManager.instance.playerHealthText, "Player is Dead", Color.red, string.Empty);
+                UiManager.instance.UpdateTotalDeaths(1);
             }
 
             //if we are blocking we play the block sound

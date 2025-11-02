@@ -11,7 +11,7 @@ public class UiManager : MonoBehaviour
     public GameObject winText;
     public GameObject[] waveTexts;
 
-    public TextMeshProUGUI enemyText, playerHealthText, playerRageText;
+    public TextMeshProUGUI enemyText, playerHealthText, playerRageText, totalEnemiesKilledText,totalDeathsText;
     public TextMeshProUGUI rageModeReadyText;
 
     private void Awake()
@@ -34,6 +34,14 @@ public class UiManager : MonoBehaviour
     public void UpdateEnemiesRemaining(int remaining)
     {
         enemiesRemainingText.text = "Enemies remaining: " + remaining.ToString();
+    }
+    public void UpdateTotalEnemiesDefeated(int totalEnemiessDefeated)
+    {
+        totalEnemiesKilledText.text = "Total Enemies Defeated:: " + totalEnemiessDefeated.ToString();
+    }
+    public void UpdateTotalDeaths(int playerDeaths)
+    {
+        totalDeathsText.text = "Total Deaths: " + playerDeaths.ToString();
     }
     ///displays the win text on the screen.
     public void ShowWinText()
